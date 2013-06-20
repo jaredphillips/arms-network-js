@@ -501,7 +501,7 @@ var isis = function() {
   }
 
   // Reduce an item's quantity in the agent's inventory
-  // by a given number
+  // by a given number, yep.
   Agent.prototype.sellItem = function(item, quantity) {
     // Find the item in the invetory
     var found_item = this.findItem(item);
@@ -530,6 +530,7 @@ var isis = function() {
   }
 
   // Return ranks based on how much money the agent has
+  // Shows how well an agent has done so far. 
   Agent.prototype.getRank = function() {
     if (this.money < 500)
       return "Rookie";
@@ -547,13 +548,15 @@ var isis = function() {
     return this.money >= amount;
   };
 
-  // Decrement the agent's money by the given amount
+  // Decrement the agent's money by the given amount, yep.
+  // Basically, subtracting money from agent wallet. 
   Agent.prototype.spendMoney = function(amount) {
     if (this.canAfford(amount))
       this.money -= amount;
   };
 
   // Increment the agent's money by the given amount
+  // Adding money to agents wallet. 
   Agent.prototype.earnMoney = function(amount) {
     this.money += amount;
   };
@@ -596,4 +599,5 @@ var isis = function() {
 // http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
 
 // Call the init function and unleash the hounds!
+// calls the game when browser starts. 
 isis.init();
