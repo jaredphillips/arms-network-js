@@ -1,6 +1,10 @@
 // ISIS is a name from the Dope Wars game
+
+
+// Jared's comments and explanations will be before each section of code.
+
 var isis = function() {
-  
+
   // Define a bunch of variables without any values
   var _game, _items, _cities;
   var $_cities, $_cityTitle, $_items, $_inventory, $_codename, $_agentName, $_agentRank;
@@ -235,7 +239,7 @@ var isis = function() {
   ];
 
   // Initialize Game with an array of Cities,
-  // a random currentCity, a new Agent, 
+  // a random currentCity, a new Agent,
   // badThings, and then refresh the views
   Game = function() {
     this.cities = _cities;
@@ -320,10 +324,10 @@ var isis = function() {
     if (!this.agent.canAfford(amount)) {
       alert("You can't afford $" + amount + ".")
       // return; ends function and the rest of the code is not run
-      return; 
+      return;
     }
 
-    var yes = confirm("Please confirm you want " + qty + " of " + 
+    var yes = confirm("Please confirm you want " + qty + " of " +
       item.name + " for $" + amount);
 
     if (yes) {
@@ -377,7 +381,7 @@ var isis = function() {
         alert("You lost a decent chunk");
       }
     });
-    
+
     badThings.push({
       name: "Search & seizure",
       ohNoes: function(agent) {
@@ -422,7 +426,7 @@ var isis = function() {
   }
 
   // Prompt the user for a name and a codename for the agent
-  Agent.prototype.init = function(item) { 
+  Agent.prototype.init = function(item) {
     this.name = prompt("What is your name, agent?");
     this.codename = prompt("And your codename?");
   }
@@ -466,18 +470,18 @@ var isis = function() {
       if (found_item.quantity - quantity < 0) {
         // ...throw an error.
         throw 'Cannot remove that much: ' + quantity;
-      } 
+      }
       // Or if all of the items are sold...
       else if (found_item.quantity - quantity === 0) {
         // Remove it from the inventory.
         var index = this.inventory.indexOf(i);
         this.inventory.splice(index, 1);
-      } 
+      }
       // Otherwise decrement the item's quantity by the given quantity.
       else {
         found_item.quantity -= quantity;
       }
-    } 
+    }
     // Else if the item was not found, throw an error.
     else {
       throw 'Item not found in Inventory: ' + i.item.name;
@@ -485,7 +489,7 @@ var isis = function() {
   }
 
   // Return ranks based on how much money the agent has
-  Agent.prototype.getRank = function() { 
+  Agent.prototype.getRank = function() {
     if (this.money < 500)
       return "Rookie";
     if (this.money < 1000)
@@ -496,7 +500,7 @@ var isis = function() {
       return "Double-0";
   }
 
-  // Return true/false based on if the agent has money 
+  // Return true/false based on if the agent has money
   // greater than or equal to the given amount
   Agent.prototype.canAfford = function(amount) {
     return this.money >= amount;
@@ -517,7 +521,7 @@ var isis = function() {
   // in the namescope of isis
   //
   // This means in the console in Chrome you can type:
-  // isis.init(), isis.debug(), isis.Agent, isis.AgentItem, 
+  // isis.init(), isis.debug(), isis.Agent, isis.AgentItem,
   // isis.Item, isis.City, and isis.Game
   //
   // (Parentheses are after init and debug because they're functions)
