@@ -93,6 +93,7 @@ var isis = function() {
 
   // Set the DOM elements for the cities
   // Sets up the HTML board for a new game. 
+  // Uses some of the generic var's set up top.
   function printCities(currentCity) {
     $_cities.text('');
     $_cityTitle.text(currentCity.name);
