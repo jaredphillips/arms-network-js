@@ -6,11 +6,13 @@
 var isis = function() {
 
   // Define a bunch of variables without any values
+  // Future use.
   var _game, _items, _cities;
   var $_cities, $_cityTitle, $_items, $_inventory, $_codename, $_agentName, $_agentRank;
   var Agent, City, Game;
 
   // Prompt user for a valid num and return it
+  // This function has for a valid number to purchase inventory.
   function promptForNumber(message)
   {
     var num;
@@ -26,17 +28,20 @@ var isis = function() {
   }
 
   // Return a HTML button for a city
+  // This function is used for storing event.
   function createButtonForCity(city) {
     var $button = $("<button>");
     $button.attr('data-city', city);
     $button.text('Travel Here');
     $button.addClass('btn');
-
+// Returns the button (jQuery)
     return $button;
   }
 
   // Return a HTML button for an item
   // and bind a click event to the button
+  // Same sort of function for these buttons as the city
+  // ones above but this time for items to buy.
   function createButtonForItem(item) {
     var $buy;
     $buy = $("<button>");
