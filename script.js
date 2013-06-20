@@ -50,6 +50,8 @@ var isis = function() {
     $buy.addClass('btn');
 
     // On click the item is bought and the views are refreshed
+//  Here is where I've left off.
+
     $buy.click(function() {
       var item = $(this).data('item');
       item = _game.currentCity.items[item];
