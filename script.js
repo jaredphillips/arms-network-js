@@ -6,7 +6,7 @@
 var isis = function() {
 
   // Define a bunch of variables without any values
-  // Future use.
+  // Defined for future use. Like getters and setters. 
   var _game, _items, _cities;
   var $_cities, $_cityTitle, $_items, $_inventory, $_codename, $_agentName, $_agentRank;
   var Agent, City, Game;
@@ -49,9 +49,10 @@ var isis = function() {
     $buy.text('Buy');
     $buy.addClass('btn');
 
-    // On click the item is bought and the views are refreshed
-//  Here is where I've left off.
-
+// On click the item is bought and the views are refreshed
+// On clicking buy, "this" click function sends that item to the 
+// funtion buyItem and then refreshViews. Then finally it returns the
+// 'this' instance of buy. 
     $buy.click(function() {
       var item = $(this).data('item');
       item = _game.currentCity.items[item];
