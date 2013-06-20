@@ -130,6 +130,7 @@ var isis = function() {
   }
 
   // Set the DOM elements for currentCity's items
+  // Sets the stage for the currentCity/one that is being visited. 
   function printItems(currentCity) {
     $_items.text('');
 
@@ -156,6 +157,8 @@ var isis = function() {
   }
 
   // Set the DOM elements for the agent's inventory
+  // Holds the current players inventory and allows that 
+  // to be returned when visiting a new city. 
   function printInventory(inventory, currentCityItems) {
     $_inventory.text('');
 
@@ -198,6 +201,8 @@ var isis = function() {
   }
 
   // Set the text of the DOM elements for the agent's profile
+  // Returns the text to the screen of agent name, codename, rank and 
+  // the current amount of money they have. 
   function printProfile(agent) {
     $_codename.text(agent.codename);
     $_agentName.text(agent.name);
@@ -207,6 +212,8 @@ var isis = function() {
 
   // Initialize a new Item with a given name, minPrice, and maxPrice
   // and set currentPrice with recalculatePrice()
+  // When visiting a new city, weapon prices need to be randomly generated 
+  // So they can be bought and sold for profit/loss.
   Item = function(name, minPrice, maxPrice) {
     this.name     = name;
     this.minPrice = minPrice;
