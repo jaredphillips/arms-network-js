@@ -69,6 +69,8 @@ var isis = function() {
 
   // Return a random subset of the given items
   // with the size of the subset given
+  // From what I can gather. This function returns the 
+  // amount of weapons/items a city will have when visited.
   function sample(items, numberOfItems) {
     var sampleOfItems = [];
 
@@ -90,6 +92,7 @@ var isis = function() {
   }
 
   // Set the DOM elements for the cities
+  // Sets up the HTML board for a new game. 
   function printCities(currentCity) {
     $_cities.text('');
     $_cityTitle.text(currentCity.name);
