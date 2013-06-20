@@ -222,11 +222,13 @@ var isis = function() {
   }
 
   // Randomly set currentPrice of Item between said Item's minPrice and maxPrice
+  // This function generates the random price. 
   Item.prototype.recalculatePrice = function () {
     this.currentPrice = getRandomIntInRange(this.minPrice, this.maxPrice);
   }
 
   // Initialize an array of Items
+  // Generates the new items array
   _items = [
     // new Item(name, minPrice, maxPrice)
     new Item('M4A1', 250, 500),
@@ -238,7 +240,10 @@ var isis = function() {
     new Item('.44 Magnum Ammo', 35, 50)
   ];
 
-  // Initialize a new City with a given name and give it a random number of random Items
+// Initialize a new City with a given name and give it a random number of random Items
+// Just like the comment above. This "constant (my words)" creates a city with a random number
+// of random items.
+
   City = function(name) {
     this.name = name;
 
@@ -247,6 +252,8 @@ var isis = function() {
   }
 
   // Initialize an array of Cities
+  // Creates an array of cities for the game. Which calls the method above "City"
+  // and then the method above that (random list of items)
   _cities = [
     new City('Toronto'),
     new City('New York'),
