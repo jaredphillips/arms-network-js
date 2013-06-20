@@ -267,6 +267,8 @@ var isis = function() {
   // Initialize Game with an array of Cities,
   // a random currentCity, a new Agent,
   // badThings, and then refresh the views
+  // Yep, does exactly that. Basically, takes all the small 
+  // objects needed to create the game and ties them together.
   Game = function() {
     this.cities = _cities;
     this.currentCity = _cities[getRandomIntInRange(0, _cities.length - 1)];
@@ -279,6 +281,7 @@ var isis = function() {
   }
 
   // Update what is displayed visually on the screen
+  // Refreshes the display for the game once someone has moved.
   Game.prototype.refreshViews = function() {
     printCities(this.currentCity);
 
@@ -300,6 +303,8 @@ var isis = function() {
   }
 
   // Return true/false based on if a random number between 1 and 10 equals 1
+  // This function determines if something bad will happen to the player
+  // if the random number from 1-10 is === to 1. 
   Game.prototype.badThing = function() {
     var roll = getRandomIntInRange(1, 10);
     console.log('rolled ' + roll);
@@ -311,6 +316,8 @@ var isis = function() {
   }
 
   // Randomly select a bad thing and apply its effects to this game's agent
+  // If a bad thing does happen, this function chooses randomly from a list of 
+  // bad things. 
   Game.prototype.makeBadThingHappen = function() {
     var index = getRandomIntInRange(1, this.badThings.length) - 1;
     var badThing = this.badThings[index];
@@ -329,6 +336,7 @@ var isis = function() {
   }
 
   // Function called when buy is clicked for an item
+  // Buy item validity check. 
   Game.prototype.buyItem = function(item) {
     var invalid = true;
 
@@ -365,6 +373,7 @@ var isis = function() {
   }
 
   // Function called when sell is clicked for an item
+  // Function for sell item validity check. 
   Game.prototype.sellItem = function(inventoryItem) {
 
     var value = inventoryItem.item.currentPrice * inventoryItem.quantity;
@@ -398,6 +407,8 @@ var isis = function() {
 
   // Add four bad things to the empty array being given called badThings
   // Each bad thing has a name, and a function of what happens called ohNoes
+
+  // List of bad things that can happen. 
   Game.prototype.initBadThings = function(badThings) {
     badThings.push({
       name: "Custom fare hike",
@@ -437,13 +448,14 @@ var isis = function() {
   }
 
   // Initialize a new AgentItem with a given item and quantity
+  // Creates a new agent with default item and quantity. 
   AgentItem = function(item, quantity) {
     this.item = item;
     this.quantity = quantity;
   }
 
   // Initialize a new Agent, give it money, an empty inventory,
-  // and call init
+  // and call init. Yep
   Agent = function() {
     this.money = 1000;
     this.inventory = [];
@@ -452,6 +464,7 @@ var isis = function() {
   }
 
   // Prompt the user for a name and a codename for the agent
+  // When starting a game, send message to user asking for name and code name. 
   Agent.prototype.init = function(item) {
     this.name = prompt("What is your name, agent?");
     this.codename = prompt("And your codename?");
@@ -475,6 +488,8 @@ var isis = function() {
   // Increment an item's quantity in the agent's inventory
   // by a given num
   // If the item is not found in the inventory, create it
+  // If a agent buys a gun, if not in current inventory, create it,
+  // else add to its total.
   Agent.prototype.buyItem = function(item, quantity) {
     var found_item = this.findItem(item);
     if (found_item) {
